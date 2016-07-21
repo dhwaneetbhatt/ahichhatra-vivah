@@ -1,0 +1,17 @@
+# Laravel
+bootstrap/compiled.php
+vendor/
+
+# Composer
+composer.phar
+composer
+
+# OS
+.DS_Store
+.idea/
+vagrant
+.vagrant
+.diff
+
+# Packages
+_ide_helpers.php
