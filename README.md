@@ -11,7 +11,7 @@ A wedding portal developed for the people of Ahichhatra community.
 * Using MailGun as mail service
 
 ### Setup
-* Install PHP 5.5, MySQL and Apache
+* Install PHP 5.5, MySQL 5.5 and Apache
 * Make the root repo dir as the document root in apache
 * Create database 'achichhatra' in MySQL
 * Update your hostname in bootstrap/start.php against 'dev' (replace 'sunshine', do not commit this file)

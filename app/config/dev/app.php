@@ -191,4 +191,16 @@ return array(
 
 	),
 
+	/*
+	|--------------------------------------------------------------------------
+	| Image Directory Path
+	|--------------------------------------------------------------------------
+	|
+	| This path will be used to access the image directory where profile photos 
+	| are stored.
+	|
+	*/
+
+	'imageDir' => '/data/profile_photos',
+
 );

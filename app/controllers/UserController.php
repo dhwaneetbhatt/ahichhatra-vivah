@@ -164,7 +164,7 @@ class UserController extends BaseController
                 // updating image if exists
                 if (Input::hasFile('photo'))
                 {
-                    $destination = getenv('OPENSHIFT_DATA_DIR') . '/profile_photos';
+                    $destination = Config::get('app.imageDir');
                     $filename = 'photo_' . $user->id . '.' .
                                 strtolower(Input::file('photo')->getClientOriginalExtension());
                     Input::file('photo')->move($destination, $filename);
