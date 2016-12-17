@@ -3,7 +3,8 @@
 	"description": "Ahichhatra Sanskar Kendra",
 	"require": {
 		"laravel/framework": "4.2.*",
-		"guzzlehttp/guzzle": "~4.0"
+		"guzzlehttp/guzzle": "~4.0",
+		"google/recaptcha": "~1.1"
 	},
 	"autoload": {
 		"classmap": [

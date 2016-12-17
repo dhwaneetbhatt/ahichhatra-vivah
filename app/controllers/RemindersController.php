@@ -47,7 +47,8 @@ class RemindersController extends Controller
     {
         if (is_null($token)) App::abort(404);
 
-        return View::make('password.reset')->with('token', $token);
+        $siteKey = Config::get('app.recaptcha.site_key');
+        return View::make('password.reset', array('siteKey' => $siteKey))->with('token', $token);
     }
 
     /**
@@ -57,6 +58,17 @@ class RemindersController extends Controller
      */
     public function postReset()
     {
+        // verifying the captcha
+        $secretKey = Config::get('app.recaptcha.secret_key');
+        $recaptcha = new \ReCaptcha\ReCaptcha($secretKey);
+        $resp = $recaptcha->verify(Input::get('g-recaptcha-response'), $_SERVER['REMOTE_ADDR']);
+        if (!$resp->isSuccess())
+        {
+            return Redirect::back()
+                    ->with('message', 'Captcha validation failed. Please try again.')
+                    ->withInput();
+        }
+        
         $credentials = Input::only(
             'email', 'password', 'password_confirmation', 'token'
         );

@@ -203,4 +203,17 @@ return array(
 
 	'imageDir' => '/data/profile_photos',
 
+
+	/*
+	|--------------------------------------------------------------------------
+	| reCaptcha Configuration
+	|--------------------------------------------------------------------------
+	|
+	| Stores the reCaptcha site key and secret key
+	|
+	*/
+
+	'recaptcha.site_key' => '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI',
+	'recaptcha.secret_key' => '6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe'
+
 );
