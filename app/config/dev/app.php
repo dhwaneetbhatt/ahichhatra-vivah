@@ -80,7 +80,7 @@ return array(
 
 	'key' => 'LTd0Nn9ZKfwrXgfvbDmXxpbGafN1INTj',
 
-	'cipher' => MCRYPT_RIJNDAEL_128,
+	'cipher' => null,
 
 	/*
 	|--------------------------------------------------------------------------
@@ -103,7 +103,7 @@ return array(
 		'Illuminate\Routing\ControllerServiceProvider',
 		'Illuminate\Cookie\CookieServiceProvider',
 		'Illuminate\Database\DatabaseServiceProvider',
-		'Illuminate\Encryption\EncryptionServiceProvider',
+		'Thomaswelton\LaravelMcryptFaker\OpensslEncryptionServiceProvider'
 		'Illuminate\Filesystem\FilesystemServiceProvider',
 		'Illuminate\Hashing\HashServiceProvider',
 		'Illuminate\Html\HtmlServiceProvider',
