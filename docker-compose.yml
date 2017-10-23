@@ -1,0 +1,41 @@
+version: '2'
+services:
+
+  # The Application
+  app:
+    build:
+      context: ./
+      dockerfile: deploy/app.dockerfile
+    volumes:
+      - ../data/config:/var/www/app/config:ro
+      - ../data/profile_photos:/var/www/public/images/profile_photos
+    environment:
+      - "IMAGE_DIR=/var/www/public/images"
+      - "MYSQL_HOST=${AHICHHATRA_MYSQL_HOST}"
+      - "MYSQL_PORT=${AHICHHATRA_MYSQL_PORT}"
+      - "MYSQL_DATABASE=${AHICHHATRA_MYSQL_DATABASE}"
+      - "MYSQL_USER=${AHICHHATRA_MYSQL_USER}"
+      - "MYSQL_PASSWORD=${AHICHHATRA_MYSQL_PASSWORD}"
+
+  # The Web Server
+  web:
+    build:
+      context: ./
+      dockerfile: deploy/web.dockerfile
+    volumes_from:
+      - app
+    ports:
+      - 80:80
+
+  # The Database
+  database:
+    image: mysql:5.6
+    volumes:
+     - ../data/db-data:/var/lib/mysql
+    environment:
+      - "MYSQL_DATABASE=${AHICHHATRA_MYSQL_DATABASE}"
+      - "MYSQL_USER=${AHICHHATRA_MYSQL_USER}"
+      - "MYSQL_PASSWORD=${AHICHHATRA_MYSQL_PASSWORD}"
+      - "MYSQL_ROOT_PASSWORD=${AHICHHATRA_MYSQL_ROOT_PASSWORD}"
+    ports:
+        - "33061:3306"
