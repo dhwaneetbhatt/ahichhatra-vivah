@@ -5,6 +5,7 @@ vendor/
 # Composer
 composer.phar
 composer
+.composer/
 
 # OS
 .DS_Store

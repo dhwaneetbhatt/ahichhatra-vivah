@@ -2,7 +2,6 @@
 	"name": "Ahichhatra",
 	"description": "Ahichhatra Sanskar Kendra",
 	"require": {
-		"thomaswelton/laravel-mcrypt-faker": "1.0.*",
 		"laravel/framework": "4.2.*",
 		"guzzlehttp/guzzle": "~4.0"
 	},
