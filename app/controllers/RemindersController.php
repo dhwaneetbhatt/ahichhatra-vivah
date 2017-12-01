@@ -13,7 +13,8 @@ class RemindersController extends Controller
      */
     public function getRemind()
     {
-        return View::make('password.remind');
+        $siteKey = Config::get('app.recaptcha.site_key');
+        return View::make('password.remind', array('siteKey' => $siteKey));
     }
 
     /**
@@ -23,6 +24,17 @@ class RemindersController extends Controller
      */
     public function postRemind()
     {
+        // verifying the captcha
+        $secretKey = Config::get('app.recaptcha.secret_key');
+        $recaptcha = new \ReCaptcha\ReCaptcha($secretKey);
+        $resp = $recaptcha->verify(Input::get('g-recaptcha-response'), $_SERVER['REMOTE_ADDR']);
+        if (!$resp->isSuccess())
+        {
+            return Redirect::back()
+                    ->with('message', 'Captcha validation failed. Please try again.')
+                    ->withInput();
+        }
+        
         $response = Password::remind(Input::only('email'), function($message)
         {
             $message->subject('Ahichhatra Vivah Password Reset');

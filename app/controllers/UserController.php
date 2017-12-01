@@ -74,7 +74,8 @@ class UserController extends BaseController
         {
             return Redirect::to('/home');
         }
-        $this->layout->content = View::make('vivah.register');
+        $siteKey = Config::get('app.recaptcha.site_key');
+        $this->layout->content = View::make('vivah.register', array('siteKey' => $siteKey));
     }
 
     /**
@@ -82,6 +83,17 @@ class UserController extends BaseController
      */
     public function doRegister()
     {
+        // verifying the captcha
+        $secretKey = Config::get('app.recaptcha.secret_key');
+        $recaptcha = new \ReCaptcha\ReCaptcha($secretKey);
+        $resp = $recaptcha->verify(Input::get('g-recaptcha-response'), $_SERVER['REMOTE_ADDR']);
+        if (!$resp->isSuccess())
+        {
+            return Redirect::back()
+                    ->with('message', 'Captcha validation failed. Please try again.')
+                    ->withInput();
+        }
+        
         $validator = Validator::make(Input::all(), ValidationHelper::$userRegisterRules);
         if ($validator->passes())
         {
