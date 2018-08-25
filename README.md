@@ -18,7 +18,7 @@ A wedding portal developed for the people of Ahichhatra community.
   * `config` - Laravel configuration
 * Run `docker-compose up` in the root directory
 * Open shell inside the app container using `docker-compose exec app sh` and do the following:
-  * Download composer and run `composer.phar install`
+  * Download composer and run `./composer.phar install`
   * Run `php artisan optimize`
   * Run `php artisan migrate`
 * Fire up the browser on `http://localhost`
