@@ -24,8 +24,12 @@ services:
       dockerfile: deploy/web.dockerfile
     volumes_from:
       - app
+    volumes:
+      - "../data/certs/letsencrypt/www:/var/www/letsencrypt"
+      - "../data/certs/letsencrypt/etc:/etc/letsencrypt"
     ports:
       - 80:80
+      - 443:443
 
   # The Database
   database:
