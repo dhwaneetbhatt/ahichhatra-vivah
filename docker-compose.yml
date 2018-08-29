@@ -25,8 +25,8 @@ services:
     volumes_from:
       - app
     volumes:
-      - "../data/certs/letsencrypt/www:/var/www/letsencrypt"
-      - "../data/certs/letsencrypt/etc:/etc/letsencrypt"
+      - "../data/certs/letsencrypt/www:/var/www/letsencrypt:ro"
+      - "../data/certs/letsencrypt/etc:/etc/letsencrypt:ro"
     ports:
       - 80:80
       - 443:443
