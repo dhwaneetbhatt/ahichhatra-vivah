@@ -1,7 +1,6 @@
 @extends('layouts.vivah')
 
 @section('content')
-{{ HTML::script('https://www.google.com/recaptcha/api.js') }}
 <div class="container">
   <div class="row">
     <div class="xol-xs-12 col-sm-8 col-md-4 col-sm-offset-1">
@@ -35,9 +34,6 @@
             </div>
             <div class="form-group">
               {{ Form::password('password_confirmation', array('class'=>'form-control', 'placeholder'=>'Confirm Password', 'required'=>'required')) }}
-            </div>
-            <div class="form-group">
-              <div class="g-recaptcha" data-sitekey="{{ $siteKey }}"></div>
             </div>
             <div class="form-group">
               {{ Form::submit('Register', array('class'=>'form-control left btn btn-success'))}}
