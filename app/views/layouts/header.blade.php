@@ -9,9 +9,9 @@
 <div class="container-fluid main-menu">
   <div class="row">
     <div class="col-xs-12">
-      <ul class="nav nav-pills main-menu-nav">
-        <li><a href="http://ahichhatra.org" target="_blank">Home</a></li>
-        <li>{{ HTML::link('/home', 'વિવાહ') }}</li>
+      <ul class="nav">
+        <li class="nav-item"><a href="http://ahichhatra.org" target="_blank" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="/home" class="nav-link">વિવાહ</a></li>
       </ul>
     </div>
   </div>

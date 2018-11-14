@@ -12,28 +12,41 @@
           {{ Form::open(array('url'=>'/register', 'role'=>'form')) }}
           <fieldset>
             <div class="form-group">
-              {{ Form::text('name', null, array('class'=>'form-control', 'placeholder'=>'Full Name', 'required'=>'required')) }}
+              <label class="col-form-label" for="input-full-name">Full Name</label>
+              {{ Form::text('name', null,
+                 array('class'=>'form-control', 'id'=> 'input-full-name', 
+                 'placeholder'=>'Full Name', 'required'=>'required')) }}
             </div>
             <div class="form-group">
+              <label class="col-form-label" for="input-gender">Gender</label>
               {{ Form::select('gender', array('male' => 'Male', 'female' => 'Female'), null,
-                 array('class'=>'form-control', 'placeholder'=>'Gender'))
+                 array('class'=>'form-control', 'id'=> 'input-gender', 'placeholder'=>'Gender'))
               }}
             </div>
             <div class="form-group">
-              {{ Form::email('email', null, array('class'=>'form-control', 'placeholder'=>'Email', 'required'=>'required')) }}
+              <label class="col-form-label" for="input-email">Email Address</label>
+              {{ Form::email('email', null, array('class'=>'form-control', 'id'=> 'input-email',
+                'placeholder'=>'Email', 'required'=>'required')) }}
             </div>
             <div class="form-group">
-              {{ Form::input('tel', 'primary_number', null, array('class'=>'form-control', 'placeholder'=>'Mobile/Phone Number', 'required'=>'required')) }}
+              <label class="col-form-label" for="input-primary-number">Mobile/Phone Number</label>
+              {{ Form::input('tel', 'primary_number', null, array('class'=>'form-control', 'id'=> 'input-primary-number',
+                'placeholder'=>'Mobile/Phone Number', 'required'=>'required')) }}
             </div>
             <div class="form-group">
-              {{ Form::label('birthdate', 'Birthdate', array('class'=>'')) }}
-              {{ Form::input('date', 'birthdate', null, array('class'=>'form-control', 'placeholder'=>'Date of Birth', 'required'=>'required')) }}
+              <label class="col-form-label" for="input-birthdate">Birthdate</label>
+              {{ Form::input('date', 'birthdate', null, array('class'=>'form-control', 'id'=> 'input-birthdate',
+                'placeholder'=>'Date of Birth', 'required'=>'required')) }}
             </div>
             <div class="form-group">
-              {{ Form::password('password', array('class'=>'form-control', 'placeholder'=>'Password', 'required'=>'required')) }}
+              <label class="col-form-label" for="input-password">Password</label>
+              {{ Form::password('password', array('class'=>'form-control', 'id'=> 'input-password',
+                'placeholder'=>'Password', 'required'=>'required')) }}
             </div>
             <div class="form-group">
-              {{ Form::password('password_confirmation', array('class'=>'form-control', 'placeholder'=>'Confirm Password', 'required'=>'required')) }}
+              <label class="col-form-label" for="input-confirm-password">Confirm Password</label>
+              {{ Form::password('password_confirmation', array('class'=>'form-control', 'id'=> 'input-confirm-password',
+                'placeholder'=>'Confirm Password', 'required'=>'required')) }}
             </div>
             <div class="form-group">
               {{ Form::submit('Register', array('class'=>'form-control left btn btn-success'))}}

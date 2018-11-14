@@ -12,10 +12,14 @@
           {{ Form::open(array('url'=>'/login', 'role'=>'form')) }}
             <fieldset>
               <div class="form-group">
-                {{ Form::email('email', null, array('class'=>'form-control', 'placeholder'=>'Email', 'required'=>'required')) }}
+                <label class="col-form-label" for="input-email">Email Address</label>
+                {{ Form::email('email', null, array('class'=>'form-control', 'id'=>'input-email',
+                  'placeholder'=>'Email Address', 'required'=>'required')) }}
               </div>
               <div class="form-group">
-                {{ Form::password('password', array('class'=>'form-control', 'placeholder'=>'Password', 'required'=>'required')) }}
+                <label class="col-form-label" for="input-password">Password</label>
+                {{ Form::password('password', array('class'=>'form-control', 'id'=>'input-password',
+                  'placeholder'=>'Password', 'required'=>'required')) }}
               </div>
               <div class="form-group">
                 {{ Form::submit('Login', array('class'=>'form-control left btn btn-primary'))}}

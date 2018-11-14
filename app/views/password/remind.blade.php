@@ -10,7 +10,9 @@
       {{ Form::open(array('action'=>'RemindersController@postRemind', 'role'=>'form')) }}
       <fieldset>
         <div class="form-group">
-            {{ Form::email('email', null, array('class'=>'form-control', 'placeholder'=>'Email', 'required'=>'required')) }}
+          <label class="col-form-label" for="input-email">Email Address</label>
+          {{ Form::email('email', null, array('class'=>'form-control', 'id'=>'input-email',
+            'placeholder'=>'Email Address', 'required'=>'required')) }}
         </div>
         <div class="form-group">
           {{ Form::submit('Reset Password', array('class'=>'form-control left btn btn-primary'))}}

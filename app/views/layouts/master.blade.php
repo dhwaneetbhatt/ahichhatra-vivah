@@ -2,10 +2,8 @@
 <html class="no-js" lang="en">
 <head>
   <meta charset="UTF-8">
-  {{ HTML::script('js/modernizr.min.js') }}
-  {{ HTML::style('css/bootstrap.min.css') }}
-  {{ HTML::style('css/bootstrap-theme.min.css') }}
-  {{ HTML::style('css/jquery.datetimepicker.min.css') }}
+  {{ HTML::script('https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js') }}
+  {{ HTML::style('https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css') }}
   {{ HTML::style('css/main.css') }}
   {{ HTML::script('js/newrelic.min.js') }}
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,7 +13,8 @@
   @include('layouts/header')
   @yield('page')
 </body>
-  {{ HTML::script('js/jquery.min.js') }}
-  {{ HTML::script('js/jquery.datetimepicker.min.js') }}
+  {{ HTML::script('https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js') }}
+  {{ HTML::script('https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.js') }}
+  {{ HTML::style('https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css') }}
   {{ HTML::script('js/main.js') }}
 </html>

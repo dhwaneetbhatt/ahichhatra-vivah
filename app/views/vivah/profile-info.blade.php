@@ -2,11 +2,11 @@
 
 @section('vivah-section')
 <div class="col-xs-12 col-sm-8 col-md-offset-1">
-  <div class="panel panel-warning">
-    <div class="panel-heading text-center">
-      <h3 class="panel-title">{{ $profile->name }}</h3>
+  <div class="card">
+    <div class="card-header bg-light text-center">
+      <h3 class="card-title">{{ $profile->name }}</h3>
     </div>
-    <div class="panel-body">
+    <div class="card-body">
       <div class="row">
         <div class="col-md-3 img-container" align="center">
           <img alt="Profile Photo" src="{{ $profile->photo}}" class="img-square">

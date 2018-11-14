@@ -8,7 +8,7 @@
   <div class="profiles-table table-responsive">
     <table class="table table-hover">
       <thead>
-        <tr class='danger'>
+        <tr class='table-danger'>
           @if($user->isAdmin())
           <th>ID</th>
           @endif
@@ -20,7 +20,7 @@
       </thead>
       <tbody>
         @foreach($profiles as $profile)
-        <tr class='warning'>
+        <tr class='table-warning'>
           @if($user->isAdmin())
           <td>{{ $profile->id }}</td>
           @endif
@@ -32,7 +32,7 @@
         @endforeach
       </tbody>
     </table>
-  </div>
+  <div>
   {{ $profiles->links() }}
 </div>
 @stop
