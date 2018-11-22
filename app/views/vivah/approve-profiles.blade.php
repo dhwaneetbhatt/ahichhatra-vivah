@@ -7,8 +7,8 @@
     @endif
     @foreach($profiles as $profile)
       <div class="row" id="profile-{{ $profile->id }}">
-        <div class="panel panel-danger">
-          <div class="panel-body">
+        <div class="card">
+          <div class="card-body">
             <div class="row">
               <div class="col-sm-6 col-md-3 img-container" align="center">
                 <a href="/profiles/{{$profile->id}}">
