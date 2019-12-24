@@ -1,4 +1,4 @@
-FROM nginx:1.16-alpine
+FROM nginx:1.17-alpine
 
 ADD deploy/vhost.conf /etc/nginx/conf.d/default.conf
 
