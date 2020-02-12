@@ -1,18 +1,9 @@
-# Laravel
-bootstrap/compiled.php
-vendor/
-
-# Composer
-composer.phar
-composer
-.composer/
-
-# OS
+# IDE and system files
+.vscode
 .DS_Store
-.idea/
-vagrant
-.vagrant
-.diff
 
-# Packages
-_ide_helpers.php
+# Dependencies
+node_modules
+
+# Config files
+.env
