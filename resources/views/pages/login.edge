@@ -1,0 +1,45 @@
+@layout('layout.app')
+
+@section('content')
+  @set('title', 'Login')
+<div class="container">
+  <div class="row">
+    <div class="xol-xs-12 col-sm-8 col-md-5 col-sm-offset-1">
+      <div>
+        <div>
+          <h3>Please sign in</h3>
+        </div>
+        <div>
+          <form method="POST" action="/login">
+            <fieldset>
+              {{ csrfField() }}
+              <div class="form-group">
+                @!component('components.label', { text: 'Email Address', related: 'email' })
+                @!component('components.input', { name: 'email', type: 'email', value: old('email'), placeholder: 'Email Address', required: true })
+              </div>
+              <div class="form-group">
+                @!component('components.label', { text: 'Password', related: 'password'})
+                @!component('components.input', { name: 'password', type: 'password', placeholder: 'Password', required: true})
+              </div>
+              <div class="form-group">
+                <button class="form-control left btn btn-primary">Login</button>
+              </div>
+              <div class="form-group">
+                <div class='action-link'>Forgot Password? Click <a href="">here</a> to reset.</div>
+              </div>
+              <div class="form-group">
+                <div class='action-link'>New user? Register <a href="/register">here.</a></div>
+              </div>
+            </fieldset>
+          </form>
+          @include('layout.partials.form-errors')
+          <div>
+            <h4>Disclaimer</h4>
+            <p>The information provided here is directly enrolled by the candidates. The Ahichhatra Sanskar Kendra is not responsible for the correctness of the particulars therein. Please contact relevant persons directly for more details.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+@endsection

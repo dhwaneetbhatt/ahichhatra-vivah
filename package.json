@@ -1,0 +1,38 @@
+{
+  "name": "ahichhatra-vivah",
+  "version": "2.0.0",
+  "author": {
+    "name": "Dhwaneet Bhatt",
+    "email": "dhwaneetbhatt@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dhwaneetbhatt/ahichhatra-vivah.git"
+  },
+  "license": "apache-2.0",
+  "private": true,
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "start": "NODE_ENV=production node server.js",
+    "dev": "NODE_ENV=development adonis serve --dev"
+  },
+  "dependencies": {
+    "@adonisjs/ace": "^5.x",
+    "@adonisjs/auth": "^3.x",
+    "@adonisjs/bodyparser": "^2.x",
+    "@adonisjs/cors": "^1.x",
+    "@adonisjs/fold": "^4.x",
+    "@adonisjs/framework": "^5.x",
+    "@adonisjs/ignitor": "^2.x",
+    "@adonisjs/lucid": "^6.x",
+    "@adonisjs/session": "^1.x",
+    "@adonisjs/shield": "^1.x",
+    "@adonisjs/validator": "^5.x",
+    "mysql": "^2.x"
+  },
+  "devDependencies": {
+    "@adonisjs/cli": "^4.x"
+  }
+}
