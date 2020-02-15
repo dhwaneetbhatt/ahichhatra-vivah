@@ -9,8 +9,22 @@
   <title>અહિચ્છત્ર સંસ્કાર કેન્દ્ર</title>
 </head>
 <body>
-  @include('layout.partials.header')
-  @!section('content')
+  <div class="container-fluid header">
+    @include('layout.partials.header')
+  </div>
+  <div class="container-fluid main-menu">
+    @include('layout.partials.nav')
+  </div>
+  <div class="container-fluid body">
+    <div class="row justify-content-center">
+      @loggedIn
+          <div class="col-xs-8 col-sm-3 col-md-2 vivah-menu">
+            @include('layout.partials.sidebar')
+          </div>
+      @endloggedIn
+      @!section('page')
+    </div>
+  </div>
 </body>
   {{ script('https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js') }}
   {{ script('https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.js') }}

@@ -10,7 +10,8 @@ class AuthController {
     const { email, password } = request.all()
     try {
       const user = await auth.attempt(email, password)
-      if (user.canLogin()) {
+      const canLogin = await user.canLogin()
+      if (canLogin) {
         return response.redirect('home')
       } else {
         // not allowed until admin approves it

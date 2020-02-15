@@ -201,8 +201,7 @@ module.exports = {
     */
     console: {
       driver: 'console',
-      name: 'ahichhtra-vivah-app',
-      level: 'info'
+      level: 'debug'
     },
 
     /*

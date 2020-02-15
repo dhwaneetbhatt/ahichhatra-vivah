@@ -1,0 +1,39 @@
+@layout('layout.app')
+
+@section('page')
+@set('title', 'Profiles')
+<div class="col-xs-12 col-sm-8 col-md-offset-1">
+  @if(profiles.length == 0)
+    <h4>No profiles yet...Check back later.</h4>
+  @endif
+  <div class="profiles-table table-responsive">
+    <table class="table table-hover">
+      <thead>
+        <tr class='table-danger'>
+          @if(user.isAdmin())
+          <th>ID</th>
+          @endif
+          <th>Name</th>
+          <th>Age</th>
+          <th>City</th>
+          <th>ગોત્ર</th>
+        </tr>
+      </thead>
+      <tbody>
+        @each(profile in profiles.data)
+        <tr class='table-warning'>
+          @if(user.isAdmin())
+          <td>{{ profile.id }}</td>
+          @endif
+          <td>{{ profile.name }}</td>
+          <td>{{ moment().diff(profile.birthdate, 'years') }} years</td>
+          <td>{{ profile.current_city }}</td>
+          <td>{{ profile.gotra }}</td>
+        </tr>
+        @endeach
+      </tbody>
+    </table>
+  <div>
+  {{--  {{ profiles.links() }}  --}}
+</div>
+@endsection

@@ -35,24 +35,41 @@ class User extends Model {
   }
 
   role() {
-    return this.hasOne('App/Models/Role', 'id', 'role_id')
+    return this.hasOne('App/Models/Role', 'role_id', 'id')
   }
 
   status() {
-    return this.hasOne('App/Models/ProfileStatusType', 'id', 'status_type_id')
+    return this.hasOne('App/Models/ProfileStatusType', 'status_type_id', 'id')
+  }
+
+  /**
+   * @return true, if user is an admin user
+   */
+  async isAdmin() {
+    const role = await this.role().fetch()
+    return role.name === 'admin'
+  }
+
+  /**
+   * @return true, if user's profile is approved
+   */
+  async isApproved() {
+    const status = await this.status().fetch()
+    return status.name === 'APPROVED'
   }
 
   /**
    * @return true, if user is allowed to login
    */
   async canLogin() {
-    return Promise.all([
-      ProfileStatusType.findBy('name', 'NEW'),
-      ProfileStatusType.findBy('name', 'DISAPPROVED'),
-      ProfileStatusType.findBy('name', 'DELETED')
-    ]).then(models => models.map(md => md.id))
-      .includes(this.status_type_id)
+    const ids = await ProfileStatusType
+      .query()
+      .where('name', 'in', ['NEW', 'DISAPPROVED', 'DELETED'])
+      .ids()
+    return !ids.includes(this.status_type_id)
+
   }
+
 }
 
 module.exports = User

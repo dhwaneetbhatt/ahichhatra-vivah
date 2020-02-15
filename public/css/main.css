@@ -7,6 +7,18 @@ body {
   background: #E4C7A1;
 }
 
+div.body {
+  padding-top: 10px;
+}
+
+.card {
+  border: none
+}
+
+.card-body {
+  background: #E4C7A1;
+}
+
 div.header {
   background-image: url('../images/header.jpg');
   height: 165px;

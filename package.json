@@ -30,6 +30,7 @@
     "@adonisjs/session": "^1.x",
     "@adonisjs/shield": "^1.x",
     "@adonisjs/validator": "^5.x",
+    "moment": "^2.x",
     "mysql": "^2.x"
   },
   "devDependencies": {
