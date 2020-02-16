@@ -33,6 +33,5 @@
       </tbody>
     </table>
   <div>
-  {{ $profiles->links() }}
 </div>
 @stop

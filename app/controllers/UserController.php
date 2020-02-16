@@ -166,7 +166,7 @@ class UserController extends BaseController
                 {
                     $destination = Config::get('app.imageDir');
                     $filename = 'photo_' . $user->id . '.' .
-                                strtolower(Input::file('photo')->getClientOriginalExtension());
+                            strtolower(Input::file('photo')->getClientOriginalExtension());
                     Input::file('photo')->move($destination, $filename);
                     $user->photo = '/images/profile_photos/' . $filename;
                 }
@@ -208,8 +208,6 @@ class UserController extends BaseController
 
         if($user->isApproved())
         {
-            $page = Input::get('page', 1);
-
             // form query conditions based on logged in user
             $query = DB::table('users')
                         ->where('status_type_id',
@@ -231,7 +229,7 @@ class UserController extends BaseController
             $query->where('role_id', '<>',
                           Role::where('name', 'admin')->first()->id);
 
-            $users = $query->paginate(20);
+            $users = $query->get();
 
             return View::make('vivah.profiles', array('profiles' => $users,
                                                       'user' => $user));
