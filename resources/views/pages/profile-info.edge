@@ -15,7 +15,7 @@
         <div class="col-md-9">
           <table class="table">
             <tbody>
-              @if(user.isAdmin())
+              @if(isAdmin)
               <tr>
               @if(profile.status.name == 'DELETED')
                 <td><button class="btn btn-success btn-accept" id="btn-accept-{{ profile.id }}">Undelete</button></td>

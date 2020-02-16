@@ -29,6 +29,13 @@ class User {
       'password.confirmed': 'Password does not match with Confirm Password.'
     }
   }
+
+  get sanitizationRules() {
+    return {
+      name: 'escape|trim',
+      email: 'email|trim'
+    }
+  }
 }
 
 module.exports = User

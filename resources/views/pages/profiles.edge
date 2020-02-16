@@ -10,7 +10,7 @@
     <table class="table table-hover">
       <thead>
         <tr class='table-danger'>
-          @if(user.isAdmin())
+          @if(isAdmin)
           <th>ID</th>
           @endif
           <th>Name</th>
@@ -22,7 +22,7 @@
       <tbody>
         @each(profile in profiles.data)
         <tr class='table-warning'>
-          @if(user.isAdmin())
+          @if(isAdmin)
           <td>{{ profile.id }}</td>
           @endif
           <td><a href="/profiles/{{ profile.id }}">{{ profile.name }}</a></td>

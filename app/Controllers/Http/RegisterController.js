@@ -28,7 +28,7 @@ class RegisterController {
     // set default profile picture
     user.photo = `/images/profile_photos/default_${gender}.png`
 
-    user.save()
+    await user.save()
     session.flash({ success: 'Registered succesfully. You will be able to login when admin approves your profile.' })
     return response.redirect('login')
   }

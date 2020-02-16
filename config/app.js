@@ -238,5 +238,17 @@ module.exports = {
     sameSite: true,
     path: '/',
     maxAge: 7200
-  }
+  },
+
+    /*
+  |--------------------------------------------------------------------------
+  | Image Directory Path
+  |--------------------------------------------------------------------------
+  |
+  | This path will be used to access the image directory where profile photos
+  | are stored.
+  |
+  */
+
+  imageDir: Env.get('IMAGE_DIR') + '/profile_photos',
 }

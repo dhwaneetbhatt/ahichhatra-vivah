@@ -43,6 +43,8 @@ Route.group(() => {
   Route.get('home', ({ response }) => response.redirect('profiles'))
 
   Route.get('profiles', 'ProfileController.index')
-  Route.get('profiles/:id', 'ProfileController.getProfile')
+  Route.get('profiles/:id', 'ProfileController.view')
+  Route.post('profiles/:id', 'ProfileController.update').validator('Profile')
+  Route.get('profiles/:id/edit', 'ProfileController.edit')
 
 }).middleware(['auth'])

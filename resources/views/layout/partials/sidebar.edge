@@ -1,10 +1,10 @@
 <ul class="nav flex-column vivah-menu-nav">
-  @if(user.isApproved())
+  @if(isApproved)
   <li class="nav-item">
     <a class="nav-link" href="/profiles">Profiles</a>
   </li>
   @endif
-  @if(user.isAdmin())
+  @if(isAdmin)
   <li class="nav-item">
     <a class="nav-link" href="/admin/profiles?status=NEW">New Registrations</a>
   </li>
@@ -21,7 +21,7 @@
     <a class="nav-link" href="/admin/profiles?status=DELETED">Deleted Profiles</a>
   </li>
   @endif
-  @if(!user.isAdmin())
+  @if(!isAdmin)
   <li class="nav-item">
     <a class="nav-link" href="/profiles/{{ user.id }}">My Profile</a>
   </li>
