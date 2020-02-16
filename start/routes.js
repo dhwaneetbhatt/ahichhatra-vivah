@@ -43,5 +43,6 @@ Route.group(() => {
   Route.get('home', ({ response }) => response.redirect('profiles'))
 
   Route.get('profiles', 'ProfileController.index')
+  Route.get('profiles/:id', 'ProfileController.getProfile')
 
 }).middleware(['auth'])

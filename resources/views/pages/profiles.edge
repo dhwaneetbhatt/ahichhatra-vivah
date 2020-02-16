@@ -25,7 +25,7 @@
           @if(user.isAdmin())
           <td>{{ profile.id }}</td>
           @endif
-          <td>{{ profile.name }}</td>
+          <td><a href="/profiles/{{ profile.id }}">{{ profile.name }}</a></td>
           <td>{{ moment().diff(profile.birthdate, 'years') }} years</td>
           <td>{{ profile.current_city }}</td>
           <td>{{ profile.gotra }}</td>
