@@ -47,4 +47,8 @@ Route.group(() => {
   Route.post('profiles/:id', 'ProfileController.update').validator('Profile')
   Route.get('profiles/:id/edit', 'ProfileController.edit')
 
+  // admin operations, filtered via admin
+  Route.get('admin/profiles', 'AdminController.index')
+  Route.put('admin/profiles/:id/status', 'AdminController.update')
+
 }).middleware(['auth'])

@@ -1,5 +1,6 @@
 'use strict'
 
+/** @type {typeof import('@adonisjs/framework/src/Logger')} */
 const Logger = use('Logger')
 
 /** @type {typeof import('@adonisjs/framework/src/Config')} */
@@ -89,7 +90,7 @@ class ProfileController {
     ]
 
     const isApproved = await user.isApproved()
-    const isAdmin = await user.isAdmin()
+    const isAdmin = await loggedInUser.isAdmin()
     return view.render('pages.profile-info', {
       profile: user, properties, user: loggedInUser,
       isApproved, isAdmin, moment
@@ -104,7 +105,7 @@ class ProfileController {
     const loggedInUserRole = await loggedInUser.role().fetch()
     if (loggedInUserRole.name === 'admin' || user.id === loggedInUser.id) {
       const isApproved = await user.isApproved()
-      const isAdmin = await user.isAdmin()
+      const isAdmin = await loggedInUser.isAdmin()
       return view.render('pages.profile-edit', {
         profile: user, user: loggedInUser,
         isApproved, isAdmin, moment
@@ -120,7 +121,8 @@ class ProfileController {
     const loggedInUser = auth.user
 
     // disallow edits of other profiles
-    if (loggedInUser.isAdmin() || user.id === loggedInUser.id) {
+    const isAdmin = await loggedInUser.isAdmin()
+    if (isAdmin || user.id === loggedInUser.id) {
 
       // updating image if exists
       if (request.file('photo')) {
@@ -140,7 +142,6 @@ class ProfileController {
       // if admin is making changes, no need for approval.
       // if user is approved, make profile edited, else keep as-is.
       const isProfileApproved = await user.isApproved()
-      const isAdmin = await loggedInUser.isAdmin()
       if (isProfileApproved && !isAdmin) {
         const status = await ProfileStatusType.findBy('name', 'EDITED')
         user.status_type_id = status.id
