@@ -32,8 +32,8 @@ class User {
 
   get sanitizationRules() {
     return {
-      name: 'escape|trim',
-      email: 'email|trim'
+      name: 'trim',
+      email: 'trim'
     }
   }
 }

@@ -17,11 +17,11 @@
             <tbody>
               @if(isAdmin)
               <tr>
-              @if(profile.status.name == 'DELETED')
+              @if(statusMap[profile.status_type_id] == 'DELETED')
                 <td><button class="btn btn-success btn-accept" id="btn-accept-{{ profile.id }}">Undelete</button></td>
                 <td><button class="btn btn-danger btn-purge" id="btn-purge-{{ profile.id }}">Purge</button></td>
               @else
-                @if(profile.status.name == 'NEW')
+                @if(statusMap[profile.status_type_id] == 'NEW')
                   <td><button class="btn btn-success btn-accept" id="btn-accept-{{ profile.id }}">Accept</button></td>
                 @else
                   <td><button class="btn btn-primary btn-approve" id="btn-approve-{{ profile.id }}">Approve</button></td>

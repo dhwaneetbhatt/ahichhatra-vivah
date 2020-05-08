@@ -3,23 +3,23 @@
 class Profile {
   get sanitizationRules() {
     return {
-      name: 'escape|trim',
-      father_name: 'escape|trim',
-      mother_name: 'escape|trim',
-      birthplace: 'escape|trim',
-      height: 'escape|trim',
-      current_city: 'escape|trim',
-      vatan: 'escape|trim',
-      gotra: 'escape|trim',
-      rashi: 'escape|trim',
-      nadi: 'escape|trim',
-      nakshtra: 'escape|trim',
-      permanent_address: 'escape|trim',
-      education: 'escape|trim',
-      hobbies: 'escape|trim',
-      job_description: 'escape|trim',
-      secondary_address: 'escape|trim',
-      references: 'escape|trim'
+      name: 'trim',
+      father_name: 'trim',
+      mother_name: 'trim',
+      birthplace: 'trim',
+      height: 'trim',
+      current_city: 'trim',
+      vatan: 'trim',
+      gotra: 'trim',
+      rashi: 'trim',
+      nadi: 'trim',
+      nakshtra: 'trim',
+      permanent_address: 'trim',
+      education: 'trim',
+      hobbies: 'trim',
+      job_description: 'trim',
+      secondary_address: 'trim',
+      references: 'trim'
     }
   }
 }

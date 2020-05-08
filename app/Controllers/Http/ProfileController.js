@@ -91,10 +91,20 @@ class ProfileController {
 
     const isApproved = await user.isApproved()
     const isAdmin = await loggedInUser.isAdmin()
+    const statusMap = await this.getProfileStatusMap()
     return view.render('pages.profile-info', {
       profile: user, properties, user: loggedInUser,
-      isApproved, isAdmin, moment
+      isApproved, isAdmin, moment, statusMap
     })
+  }
+
+  async getProfileStatusMap() {
+    const map = {}
+    const statuses = await ProfileStatusType.all()
+    for (const row of statuses.rows) {
+      map[row.id] = row.name
+    }
+    return map
   }
 
   async edit({ auth, params, session, view }) {
