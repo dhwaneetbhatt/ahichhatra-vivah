@@ -2,7 +2,7 @@
 	"name": "Ahichhatra",
 	"description": "Ahichhatra Sanskar Kendra",
 	"require": {
-		"laravel/framework": "4.2.*",
+		"laravel/framework": "6.20.*",
 		"guzzlehttp/guzzle": "~4.0"
 	},
 	"autoload": {
