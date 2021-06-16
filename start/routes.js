@@ -33,6 +33,9 @@ Route.group(() => {
 
   Route.get('register', 'RegisterController.index')
   Route.post('register', 'RegisterController.register').validator('User')
+
+  Route.get('password/forgot', 'PasswordController.forgot')
+  Route.post('password/forgot', 'PasswordController.reset')
 }).middleware(['guest'])
 
 // Those routes should be only accessible
