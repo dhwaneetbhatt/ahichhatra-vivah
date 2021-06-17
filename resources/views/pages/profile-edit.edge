@@ -1,0 +1,174 @@
+@layout('layout.app')
+
+@section('page')
+@set('title', 'Profile Edit')
+<div class="col-xs-12 col-sm-8 col-md-offset-1">
+  <div class="card">
+    <div class="card-header bg-light text-center">
+      <h3 class="card-title">{{ profile.name }}</h3>
+    </div>
+    <div class="card-body">
+      <form method="POST" class="form-horizontal" action="/profiles/{{ profile.id }}" enctype="multipart/form-data">
+        <fieldset>
+          <div class="form-group row">
+            @include('layout.partials.form-errors')
+          </div>
+          {{ csrfField() }}
+          @!component('components.input', { name: 'id', type: 'hidden', value: profile.id })
+          <div class="form-group row">
+            @!component('components.label', { text: 'Photo', related: 'photo', clss: 'col-sm-2 col-form-label' })
+            <div class="col-sm-8">
+              <div class="form-group row">
+                <div class="col-sm-4 img-container">
+                  <img src="{{ profile.photo }}" />
+                </div>
+                <div class="col-sm-2">
+                  <input type="file" name="photo" accept="image/*">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            @!component('components.label', { text: 'Name', related: 'name', clss: 'col-sm-2 col-form-label' })
+            <div class="col-sm-8">
+              @!component('components.input', { name: 'name', value: profile.name, required: true })
+            </div>
+          </div>
+          <div class="form-group row">
+            @!component('components.label', { text: 'Father\\\'s Name', related: 'father_name', clss: 'col-sm-2 col-form-label' })
+            <div class="col-sm-8">
+              @!component('components.input', { name: 'father_name', value: profile.father_name })
+            </div>
+          </div>
+          <div class="form-group row">
+            @!component('components.label', { text: 'Mother\\\'s Name', related: 'mother_name', clss: 'col-sm-2 col-form-label' })
+            <div class="col-sm-8">
+              @!component('components.input', { name: 'mother_name', value: profile.mother_name })
+            </div>
+          </div>
+          <div class="form-group row">
+            @!component('components.label', { text: 'Date of Birth', related: 'birthdate', clss: 'col-sm-2 col-form-label' })
+            <div class="col-sm-8">
+              @!component('components.input', { name: 'birthdate', type: 'date', value:
+              moment(profile.birthdate).format('YYYY-MM-DD'), required:true })
+            </div>
+          </div>
+          <div class="form-group row">
+            @!component('components.label', { text: 'Time of Birth', related: 'birthtime', clss: 'col-sm-2 col-form-label' })
+            <div class="col-sm-8">
+              @!component('components.input', { name: 'birthtime', type: 'time', value: moment(profile.birthtime).format('YYYY-MM-DDTHH:mm A') })
+            </div>
+          </div>
+          <div class="form-group row">
+            @!component('components.label', { text: 'Place of Birth', related: 'birthplace', clss: 'col-sm-2 col-form-label' })
+            <div class="col-sm-8">
+              @!component('components.input', { name: 'birthplace', value: profile.birthplace })
+            </div>
+          </div>
+          <div class="form-group row">
+            @!component('components.label', { text: 'Height', related: 'height', clss: 'col-sm-2 col-form-label' })
+            <div class="col-sm-8">
+              @!component('components.input', { name: 'height', value: profile.height })
+            </div>
+          </div>
+          <div class="form-group row">
+            @!component('components.label', { text: 'Current City', related: 'current_city', clss: 'col-sm-2 col-form-label' })
+            <div class="col-sm-8">
+              @!component('components.input', { name: 'current_city', value: profile.current_city })
+            </div>
+          </div>
+          <div class="form-group row">
+            @!component('components.label', { text: 'વતન', related: 'vatan', clss: 'col-sm-2 col-form-label' })
+            <div class="col-sm-8">
+              @!component('components.input', { name: 'vatan', value: profile.vatan })
+            </div>
+          </div>
+          <div class="form-group row">
+            @!component('components.label', { text: 'ગોત્ર', related: 'gotra', clss: 'col-sm-2 col-form-label' })
+            <div class="col-sm-8">
+              @!component('components.input', { name: 'gotra', value: profile.gotra })
+            </div>
+          </div>
+          <div class="form-group row">
+            @!component('components.label', { text: 'રાશી', related: 'rashi', clss: 'col-sm-2 col-form-label' })
+            <div class="col-sm-8">
+              @!component('components.input', { name: 'rashi', value: profile.rashi })
+            </div>
+          </div>
+          <div class="form-group row">
+            @!component('components.label', { text: 'નાડી', related: 'nadi', clss: 'col-sm-2 col-form-label' })
+            <div class="col-sm-8">
+              @!component('components.input', { name: 'nadi', value: profile.nadi })
+            </div>
+          </div>
+          <div class="form-group row">
+            @!component('components.label', { text: 'નક્ષત્ર', related: 'nakshtra', clss: 'col-sm-2 col-form-label' })
+            <div class="col-sm-8">
+              @!component('components.input', { name: 'nakshtra', value: profile.nakshtra })
+            </div>
+          </div>
+          <div class="form-group row">
+            @!component('components.label', { text: 'Permanent Address', related: 'permanent_address', clss: 'col-sm-2 col-form-label' })
+            <div class="col-sm-8">
+              @!component('components.textarea', { name: 'permanent_address', rows: '3', value: profile.permanent_address })
+            </div>
+          </div>
+          <div class="form-group row">
+            @!component('components.label', { text: 'Mobile/Phone Number', related: 'primary_number', clss: 'col-sm-2 col-form-label' })
+            <div class="col-sm-8">
+              @!component('components.input', { name: 'primary_number', type: 'tel', value: profile.primary_number, required: true })
+            </div>
+          </div>
+          <div class="form-group row">
+            @!component('components.label', { text: 'Educational Qualification', related: 'education', clss: 'col-sm-2 col-form-label' })
+            <div class="col-sm-8">
+              @!component('components.textarea', { name: 'education', rows: '2', value: profile.education })
+            </div>
+          </div>
+          <div class="form-group row">
+            @!component('components.label', { text: 'Hobbies', related: 'hobbies', clss: 'col-sm-2 col-form-label' })
+            <div class="col-sm-8">
+              @!component('components.textarea', { name: 'hobbies', rows: '2', value: profile.hobbies })
+            </div>
+          </div>
+          <div class="form-group row">
+            @!component('components.label', { text: 'Job Description', related: 'job_description', clss: 'col-sm-2 col-form-label' })
+            <div class="col-sm-8">
+              @!component('components.textarea', { name: 'job_description', rows: '3', value: profile.job_description })
+            </div>
+          </div>
+          <div class="form-group row">
+            @!component('components.label', { text: 'Salary', related: 'salary', clss: 'col-sm-2 col-form-label' })
+            <div class="col-sm-8">
+              @!component('components.input', { name: 'salary', value: profile.salary })
+            </div>
+          </div>
+          <div class="form-group row">
+            @!component('components.label', { text: 'Office/Other Address', related: 'secondary_address', clss: 'col-sm-2 col-form-label' })
+            <div class="col-sm-8">
+              @!component('components.textarea', { name: 'secondary_address', rows: '3', value: profile.secondary_address })
+            </div>
+          </div>
+          <div class="form-group row">
+            @!component('components.label', { text: 'Office/Other Numbers', related: 'secondary_number', clss: 'col-sm-2 col-form-label' })
+            <div class="col-sm-8">
+              @!component('components.input', { name: 'secondary_number', type: 'tel', value: profile.secondary_number })
+            </div>
+          </div>
+          <div class="form-group row">
+            @!component('components.label', { text: 'Two References', related: 'references', clss: 'col-sm-2 col-form-label' })
+            <div class="col-sm-8">
+              @!component('components.textarea', { name: 'references', rows: '4', value: profile.references })
+            </div>
+          </div>
+          <div class="form-group row justify-content-center">
+            <div class="col-sm-3">
+              <button class="form-control btn btn-primary">Save</button>
+            </div>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</div>
+@endsection

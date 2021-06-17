@@ -1,0 +1,70 @@
+@layout('layout.app')
+
+@section('page')
+@set('title', 'Profile Info')
+<div class="col-xs-12 col-sm-8 col-md-offset-1">
+  <div class="card">
+    <div class="card-header bg-light text-center">
+      <h3 class="card-title">{{ profile.name }}</h3>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-3 img-container" align="center">
+          <img alt="Profile Photo" src="{{ profile.photo}}" class="img-square">
+        </div>
+        <div class="col-md-9">
+          <table class="table">
+            <tbody>
+              @if(isAdmin)
+              <tr>
+              @if(statusMap[profile.status_type_id] == 'DELETED')
+                <td><button class="btn btn-success btn-accept" id="btn-accept-{{ profile.id }}">Undelete</button></td>
+                <td><button class="btn btn-danger btn-purge" id="btn-purge-{{ profile.id }}">Purge</button></td>
+              @else
+                @if(statusMap[profile.status_type_id] == 'NEW')
+                  <td><button class="btn btn-success btn-accept" id="btn-accept-{{ profile.id }}">Accept</button></td>
+                @else
+                  <td><button class="btn btn-primary btn-approve" id="btn-approve-{{ profile.id }}">Approve</button></td>
+                @endif
+                <td><button class="btn btn-warning btn-disapprove" id="btn-disapprove-{{ profile.id }}">Disapprove</button></td>
+                <td><button class="btn btn-danger btn-delete" id="btn-delete-{{ profile.id }}">Delete</button></td>
+              @endif
+              </tr>
+              <tr>
+                <td>ID</td>
+                <td>{{ profile.id }}</td>
+              </tr>
+              <tr>
+                <td><a href="/profiles/{{ profile.id }}/edit">Edit Profile</a></td>
+              </tr>
+              @endif
+              <tr>
+                <td>Age</td>
+                <td>{{ moment().diff(profile.birthdate, 'years') }} years</td>
+              </tr>
+              <tr>
+                <td>Date of Birth</td>
+                <td>{{ moment(profile.birthdate).format('DD MMMM YYYY') }}</td>
+              </tr>
+              <tr>
+                <td>Time of Birth</td>
+                <td>{{ profile.birthtime ? moment(profile.birthtime).format('HH:mm a'): '' }}</td>
+              </tr>
+              @each(property in properties)
+                <tr>
+                  <td>{{ property.display }}</td>
+                  <td>
+                    @yield(profile[property.key])
+                      <p></p>
+                    @endyield
+                  </td>
+                </tr>
+              @endeach
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+@endsection

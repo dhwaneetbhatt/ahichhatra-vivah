@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="css/main.css" media="screen" />
+  <title>અહિચ્છત્ર સંસ્કાર કેન્દ્ર</title>
+</head>
+<body>
+  <div class="container-fluid header">
+    @include('layout.partials.header')
+  </div>
+  <div class="container-fluid main-menu">
+    @include('layout.partials.nav')
+  </div>
+  <div class="container-fluid body">
+    <div class="row justify-content-center">
+      @if(auth.isLoggedIn)
+          <div class="col-xs-8 col-sm-3 col-md-2 vivah-menu">
+            @include('layout.partials.sidebar')
+          </div>
+      @endif
+      @!section('page')
+    </div>
+  </div>
+</body>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css" media="screen" />
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+  {{--  <script type="text/javascript" src="js/newrelic.min.js"></script>  --}}
+  <script type="text/javascript" src="js/main.js"></script>
+</html>
